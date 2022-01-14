@@ -31,10 +31,6 @@ var delays = 80,
 function ChartistPage(props) {
   const [list, setList] = useState({ labels:[], 
                   series:[[]] });
-  /*
-   dataChart: { labels:["MM", "FC", "FM", "SC", "TT", "VM"], 
-            series:[[ 1, 2, 35, 0, 36, 36 ]] },     
-  */
 
   // I finally got this to work using https://swsinswsin.medium.com/unhandled-rejection-typeerror-this-setstate-is-not-a-function-9799dcb55c34
   // Solves the "Unhandled Rejection (TypeError): this is undefined - callback ...
@@ -53,20 +49,8 @@ function ChartistPage(props) {
           })
         }
       
-        // console.log(data);
-
         if (mounted) {
           setList({labels: data.labels, series: Array(data.series)})
-          /* Note: This ff.codes doesn't work
-          setList({ 
-            list: {        
-              ...list,        
-              labels: data.labels,
-              series: Array([ 1, 2, 35, 0, 36, 36 ])  
-              //series: Array(data.series)   
-            }    
-          })
-          */
         } 
       });
     return () => mounted = false;

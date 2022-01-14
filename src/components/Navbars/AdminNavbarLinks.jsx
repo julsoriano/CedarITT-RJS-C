@@ -26,31 +26,58 @@ import headerLinksStyle from "assets/jss/material-dashboard-react/components/hea
 class AdminNavbarLinks extends React.Component {
   state = {
     openNotifcation: false,
-    openProfile: false
+    openProfile: false,
+    width: 0, height: 0
   };
+
+  // See https://stackoverflow.com/questions/36862334/get-viewport-window-height-in-reactjs
+  // Start
+  updateWindowDimensions = this.updateWindowDimensions.bind(this);
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+  
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
+  // End 
+
   handleToggleNotification = () => {
     this.setState(state => ({ openNotifcation: !state.openNotifcation }));
   };
+
   handleCloseNotification = event => {
     if (this.anchorNotification.contains(event.target)) {
       return;
     }
     this.setState({ openNotifcation: false });
   };
+
   handleToggleProfile = () => {
     this.setState(state => ({ openProfile: !state.openProfile }));
   };
+
   handleCloseProfile = event => {
     if (this.anchorProfile.contains(event.target)) {
       return;
     }
     this.setState({ openProfile: false });
   };
+
   render() {
     const { classes } = this.props;
-    const { openNotifcation, openProfile } = this.state;
+    const { openNotifcation, openProfile, width, height } = this.state;
     return (
       <div>
+        <div className={classes.screensize}>
+          <p>Screen size: {width} x {height}</p>
+        </div>        
         <div className={classes.searchWrapper}>
           <CustomInput
             formControlProps={{

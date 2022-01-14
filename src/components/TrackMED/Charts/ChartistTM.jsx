@@ -40,9 +40,9 @@ class ChartistPage extends Component {
       loading: true,
     };
     /**
-     dataChart: { labels:["MM", "FC", "FM", "SC", "TT", "VM"], 
-              series:[[ 1, 2, 35, 0, 36, 36 ]] },     
-     */
+      dataChart: { labels:["MM", "FC", "FM", "SC", "TT", "VM"], 
+                   series:[[ 1, 2, 35, 0, 36, 36 ]] },     
+    */
   } 
 
   // I finally got this to work using https://swsinswsin.medium.com/unhandled-rejection-typeerror-this-setstate-is-not-a-function-9799dcb55c34
@@ -64,13 +64,10 @@ class ChartistPage extends Component {
         return data;
       })
       
-      // console.log((await response).labels, (await response).series);
-      
       this.setState({
         dataChart: {        
           ...this.state.dataChart,        
           labels: (await response).labels,
-          // series: Array([ 1, 2, 35, 0, 36, 36 ])  
           series: Array((await response).series)   
         }    
       });

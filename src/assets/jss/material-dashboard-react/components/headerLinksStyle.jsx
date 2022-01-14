@@ -107,7 +107,18 @@ const headerLinksStyle = theme => ({
       margin: "10px 15px 0"
     },
     display: "inline-block"
-  }
+  },
+    /* added jss */
+    screensize: {
+      [theme.breakpoints.down("sm")]: {
+        width: "100%",
+      },
+      display: "inline-block",
+      marginRight: "16px",  
+      fontSize: "10px",  
+      color: "red",
+      fontWeight: "bold"
+    }
 });
 
 export default headerLinksStyle;

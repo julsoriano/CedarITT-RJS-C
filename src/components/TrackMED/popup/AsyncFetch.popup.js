@@ -71,8 +71,8 @@ export class AsyncFetchPop extends Component {
 			},								  			
 		  ]
 		
-		  // Applicable to Location table only
-		  const columnsSystem = [
+		// Applicable to Location table only
+		const columnsSystem = [
 			{
 			  name: "assetnumber",
 			  label: "Asset#"

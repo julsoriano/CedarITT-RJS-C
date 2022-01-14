@@ -299,7 +299,7 @@ export class Base extends Component {
             this.tr.setAttribute("id", "NestedTR");
             
             var td = document.createElement("td");
-            td.setAttribute("colspan", "5");
+            td.setAttribute("colspan", "7");
             
             var tbl = document.createElement("table");
             tbl.classList.add('table', 'table-light', 'table-striped', 'table-condensed');
@@ -459,14 +459,10 @@ export class Base extends Component {
             if( this.tr !== null && this.tr !== undefined) this.tr.parentNode.removeChild(this.tr);
             if( this.elListSave !== null && this.elListSave !== undefined ) this.elListSave.replace('glyphicon-minus', 'glyphicon-plus');
 
-            // create nested table using regular HTML elements
-            this.createNTableHTML(id, elGP, elP, this.headings);     
-            
-            // create nested table using custom HTML elements
-            // this.createNTableComponent(id, elGP, elP);
-
-            // create nested table using mui-datatables
-            // this.createDataTable(id, elGP, elP);
+            // create nested table 
+            this.createNTableHTML(id, elGP, elP, this.headings);    // using regular HTML elements
+            // this.createDataTable(id, elGP, elP);                 // using mui-datatables
+            // this.createNTableComponent(id, elGP, elP);           // using custom HTML elements
 
             this.elListSave = elList;
 
